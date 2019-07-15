@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="description">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="title">
+    <meta property="og:site_name" content="site_name">
+    <meta property="og:description" content="description">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <style type="text/css">
+      .o-table {
+        border: 1px solid #ff0000;
+        width: 400px;
+        margin: 0 auto;
+      }
+      .o-table th {
+        width: 100px;
+        cursor: pointer;
+        color: #ff0000;
+      }
+      .o-table th,
+      .o-table td {
+        text-align: center;
+        padding: 5px 0;
+        border: 1px solid #ff0000;
+      }
+    </style>
+    <script type="text/javascript" charset="utf-8" src="json.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        var table = document.querySelector(".o-table");
+        var othead = table.tHead;
+        var oTr = othead.rows[0];
+        var oCells = oTr.cells;
+        var otbody = table.tBodies[0];
+        var otbodyTr = otbody.rows;
+        var reverseIndex = -1;
+        var tempIndex = 0;
+        
+        var data = null;
+        var xhr = new XMLHttpRequest();
+        xhr.open("get","json.js",false);
+        xhr.onreadystatechange = function() {
+          if(xhr.readyState === 4) {
+            var value = xhr.responseText;
+            data = JSON.parse(value);
+          }
+        }
+        xhr.send(null);
+
+        function bindData() {
+          var frg = document.createDocumentFragment();
+          for(var i = 0; i < data.length; i++) {
+            var tr = document.createElement("tr");
+            for(key in data[i]) {
+              var td = document.createElement("td");
+              td.innerHTML = data[i][key];
+              tr.appendChild(td);
+            };
+            frg.appendChild(tr);
+          }
+          otbody.appendChild(frg);
+          frg = null;
+        };
+        bindData();
+
+        for(var i = 0; i < oCells.length; i++) {
+          oCells[i].index = i;
+          oCells[i].onclick = function() {
+            sortModule(this.index, tempIndex);
+            tempIndex = this.index;
+          }
+        }
+
+        var ary = Array.prototype.slice.call(otbodyTr);
+
+        function sortModule(index, tempIndex) {
+          if(index !== tempIndex) {
+            reverseIndex = -1;
+          }
+          reverseIndex *= -1;
+          ary.sort(function(a,b){
+            var cur = a.getElementsByTagName("td");
+            var next = b.getElementsByTagName("td");
+            if(isNaN(cur[index].innerHTML) && isNaN(next[index].innerHTML)) {
+              return (cur[index].innerHTML.localeCompare(next[index].innerHTML)) * reverseIndex;
+            } else {
+              return (cur[index].innerHTML - next[index].innerHTML) * reverseIndex;
+            }
+          });
+
+          var frg = document.createDocumentFragment();
+          otbody.innerHTML = null;
+          for(var i = 0; i < ary.length; i++) {
+            var tr = document.createElement("tr");
+            tr.innerHTML = ary[i].innerHTML;
+            frg.appendChild(tr);
+          }
+          otbody.appendChild(frg);
+          frg = null;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <table class="o-table">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>功力</th>
+          <th>性别</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="description">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="title">
+    <meta property="og:site_name" content="site_name">
+    <meta property="og:description" content="description">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 450px;
+        height: 450px;
+        position: relative;
+        top: 20px;
+        left: 20px;
+        cursor: move;
+        box-shadow: 0 0 5px #ccc;
+        overflow: hidden;
+      }
+      #mark {
+        position: absolute;
+        width: 225px;
+        height: 225px;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        display: none;
+      }
+      #large {
+        width: 450px;
+        height: 450px;
+        position: absolute;
+        top: 20px;
+        left: 500px;
+        overflow: hidden;
+        border: 1px solid #000;
+        display: none;
+      }
+      #large img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 800px;
+        height: 800px;;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var box = document.getElementById("box");
+        var mark = document.getElementById("mark");
+        var large = document.getElementById("large");
+        var largeImg = large.getElementsByTagName("img")[0];
+        function fn(e) {
+          e = e || window.event;
+          var tempLeft = 0;
+          var tempTop = 0;
+          var minLeft = 0;
+          var minTop = 0;
+          var maxLeft = box.offsetWidth - mark.offsetWidth;
+          var maxTop = box.offsetHeight - mark.offsetHeight;
+
+          var left = e.clientX - box.offsetLeft - (mark.offsetWidth / 2);
+          var top = e.clientY - box.offsetTop - (mark.offsetHeight / 2);
+          if(left < minLeft) {
+            mark.style.left = minLeft;
+            tempLeft = minLeft;
+          } else if(left > maxLeft) {
+            mark.style.left = maxLeft + "px";
+            tempLeft = maxLeft;
+          } else {
+            mark.style.left = left + "px";
+            tempLeft = left;
+          }
+          if(top < minTop) {
+            mark.style.top = minTop;
+            tempTop = minTop;
+          } else if(top > maxTop) {
+            mark.style.top = maxTop + "px";
+            tempTop = maxTop;
+          } else {
+            mark.style.top = top + "px";
+            tempTop = top;
+          }
+
+          largeImg.style.left = -(tempLeft * 1.56) + "px";
+          largeImg.style.top = -(tempTop * 1.56) + "px";
+        }
+        box.onmouseenter = function(e) {
+          mark.style.display = "block";
+          large.style.display = "block";
+          fn(e);
+        };
+        box.onmousemove = function(e) {
+          fn(e);
+        };
+        box.onmouseleave = function(e) {
+          mark.style.display = "none";
+          large.style.display = "none";
+        }
+      })
+    </script>
+  </head>
+  <body>
+    <div id="box">
+      <img src="normal.jpg" width="450" height="450" alt="">
+      <div id="mark"></div>
+    </div>
+    <div id="large"><img src="large.jpg" width="800" height="800" alt=""></div>
+  </body>
+</html>
