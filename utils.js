@@ -18,21 +18,27 @@ utils = {
      * ele: 标签元素
      * attr: css属性名
      */ 
-    getCss: function(ele, attr) {
+    getCss: function(ele, attr, pseudo) {
         var val = null;
         var reg = null;
+								var reg2 = null;
         if("getComputedStyle" in window) {
-            val = window.getComputedStyle(ele, null)[attr];
+										if(pseudo) {
+												val = window.getComputedStyle(ele, pseudo)[attr];
+										} else {
+												val = window.getComputedStyle(ele, null)[attr];
+										}
         } else {
-            if(attr === "opacity") {
-                val = ele.currentStyle["filter"];
-                reg = /^alpha\(opacity=(\d+(\.\d+)?)\)$/i;
-                val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
-                return;
-            }
-            val = ele.currentStyle[attr];
+										if(attr === "opacity") {
+												/*val = ele.currentStyle["filter"];*/
+												val = "alpha(opacity=60)";
+												reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
+												val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+										} else {
+												val = ele.currentStyle[attr];
+										}
         }
-        reg = /^(-?\d+(\.\d+)?)(em|rem|pt|px)?$/;
+        reg = /^(-?\d+(\.\d+)?)(em|rem|pt|px)?$/i;
         val = reg.test(val) ? parseFloat(val) : val;
         return val;
     },
