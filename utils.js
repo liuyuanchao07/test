@@ -21,22 +21,21 @@ utils = {
     getCss: function(ele, attr, pseudo) {
         var val = null;
         var reg = null;
-								var reg2 = null;
+		var reg2 = null;
         if("getComputedStyle" in window) {
-										if(pseudo) {
-												val = window.getComputedStyle(ele, pseudo)[attr];
-										} else {
-												val = window.getComputedStyle(ele, null)[attr];
-										}
-        } else {
-										if(attr === "opacity") {
-												/*val = ele.currentStyle["filter"];*/
-												val = "alpha(opacity=60)";
-												reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
-												val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
-										} else {
-												val = ele.currentStyle[attr];
-										}
+            if(pseudo) {
+              val = window.getComputedStyle(ele, pseudo)[attr];
+            } else {
+              val = window.getComputedStyle(ele, null)[attr];
+            }
+} else {
+            if(attr === "opacity") {
+                val = ele.currentStyle["filter"];
+                reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
+                val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+            } else {
+                val = ele.currentStyle[attr];
+            }
         }
         reg = /^(-?\d+(\.\d+)?)(em|rem|pt|px)?$/i;
         val = reg.test(val) ? parseFloat(val) : val;
@@ -49,8 +48,8 @@ utils = {
         while(parent) {
             // IE8的offsetLeft包含了clientLeft的值
             if(navigator.userAgent.indexOf("MSIE 8.0" === -1)) {
-                totalLeft += parent.clientLeft;
-                totalTop += parent.clientTop;
+                totalLeft += parent.clientLeft
+                totalTop += parent.clientTop
             }
             totalLeft += parent.offsetLeft;
             totalTop += parent.offsetTop;
