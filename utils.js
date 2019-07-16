@@ -35,5 +35,21 @@ utils = {
         reg = /^(-?\d+(\.\d+)?)(em|rem|pt|px)?$/;
         val = reg.test(val) ? parseFloat(val) : val;
         return val;
+    },
+    offset: function(ele) {
+        var totalLeft = ele.offsetLeft;
+        var totalTop = ele.offsetTop;
+        var parent = ele.offsetParent;
+        while(parent) {
+            // IE8的offsetLeft包含了clientLeft的值
+            if(navigator.userAgent.indexOf("MSIE 8.0" === -1)) {
+                totalLeft += parent.clientLeft;
+                totalTop += parent.clientTop;
+            }
+            totalLeft += parent.offsetLeft;
+            totalTop += parent.offsetTop;
+            parent = parent.offsetParent;
+        }
+        return {left: totalLeft, top: totalTop};
     }
 }
