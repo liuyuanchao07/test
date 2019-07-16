@@ -12,12 +12,27 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
     <style type="text/css">
-      #box {
-        width: 200px;
-        height: 200px;
-        background-color: aquamarine;
-								opacity: 0.4;
-								padding: 10px 20px 30px 40px;
+      .outer {
+        width: 180px;
+        height: 180px;
+        border: 10px solid #000;
+        padding: 50px;
+        background-color: aqua;
+        position: relative;
+      }
+      .inner {
+        width: 60px;
+        height: 60px;
+        border: 10px solid #000;
+        padding: 50px;
+        background-color: blueviolet;
+        position: relative;
+      }
+      .center {
+        width: 40px;
+        height: 40px;
+        background-color: blue;
+        border: 10px solid #000;
       }
 						#box::before {
 						  content: "hello";
@@ -26,13 +41,19 @@
     </style>
     <script type="text/javascript" charset="utf-8" src="utils.js"></script>
     <script type="text/javascript">
-      window.onload = function() {
-						   var box = document.getElementById("box");
-        console.log(utils.getCss(box, "padding"));
-						}
+      document.addEventListener("DOMContentLoaded", function(){
+        var box = document.querySelector(".center");
+        console.log(utils.offset(box)["top"])
+      },false)
     </script>
   </head>
   <body>
-    <div id="box"></div>
+    <div class="outer">
+      <div class="inner">
+        <div class="center">
+          
+        </div>
+      </div>
+    </div>
   </body>
 </html>
