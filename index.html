@@ -12,21 +12,27 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
     <style type="text/css">
-      .box {
+      #box {
         width: 200px;
         height: 200px;
         background-color: aquamarine;
+								opacity: 0.4;
+								padding: 10px 20px 30px 40px;
       }
+						#box::before {
+						  content: "hello";
+								height: 300px;
+						}
     </style>
     <script type="text/javascript" charset="utf-8" src="utils.js"></script>
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function(){
-        var box = document.querySelector(".box");
+      window.onload = function() {
+						   var box = document.getElementById("box");
         console.log(utils.getCss(box, "padding"));
-      },false)
+						}
     </script>
   </head>
   <body>
-    <div class="box"></div>
+    <div id="box"></div>
   </body>
 </html>
