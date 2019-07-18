@@ -21,14 +21,13 @@ utils = {
     getCss: function(ele, attr, pseudo) {
         var val = null;
         var reg = null;
-		var reg2 = null;
         if("getComputedStyle" in window) {
             if(pseudo) {
               val = window.getComputedStyle(ele, pseudo)[attr];
             } else {
               val = window.getComputedStyle(ele, null)[attr];
             }
-} else {
+        } else {
             if(attr === "opacity") {
                 val = ele.currentStyle["filter"];
                 reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
