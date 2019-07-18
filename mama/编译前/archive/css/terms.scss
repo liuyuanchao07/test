@@ -1,0 +1,36 @@
+@charset 'utf-8';
+@import 'abstract/all';
+
+.main_visual {
+  display: flex;
+  align-items: center;
+  height: 280px;
+  text-align: center;
+  background: url(/mama/img/index/bg_main.jpg) center center / cover no-repeat;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 6px;
+    display: block;
+    position: absolute;
+    background-color: $color-red01;
+    top: 0;
+    left: 0;
+  }
+}
+
+.terms {
+  color: #742322;
+  padding-top: 60px;
+
+  &_title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+  }
+
+  &_item {
+    margin-top: 20px;
+  }
+}

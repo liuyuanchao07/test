@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+.main_visual {
+  display: flex;
+  align-items: center;
+  height: 280px;
+  text-align: center;
+  background: url(/mama/img/index/bg_main.jpg) center center/cover no-repeat;
+}
+
+.main_visual::before {
+  content: '';
+  width: 100%;
+  height: 6px;
+  display: block;
+  position: absolute;
+  background-color: #e50018;
+  top: 0;
+  left: 0;
+}
+
+.terms {
+  color: #742322;
+  padding-top: 60px;
+}
+
+.terms_title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+}
+
+.terms_item {
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFyY2hpdmUvY3NzL3Rlcm1zLmNzcyIsImFyY2hpdmUvbm9kZV9tb2R1bGVzL0Bvcm8vc3RhdGljLXNpdGUtbW9kdWxlcy9fc2Nzcy9taXhpbnMvX2Fycm93LnNjc3MiLCJhcmNoaXZlL25vZGVfbW9kdWxlcy9Ab3JvL3N0YXRpYy1zaXRlLW1vZHVsZXMvX3Njc3MvbWl4aW5zL19zcF9vZmZzZXQuc2NzcyIsImFyY2hpdmUvbm9kZV9tb2R1bGVzL0Bvcm8vc3RhdGljLXNpdGUtbW9kdWxlcy9fc2Nzcy9taXhpbnMvX3lvdXR1YmUuc2NzcyIsImFyY2hpdmUvbm9kZV9tb2R1bGVzL0Bvcm8vc3RhdGljLXNpdGUtbW9kdWxlcy9fc2Nzcy9taXhpbnMvX3pfaW5kZXguc2NzcyIsImFyY2hpdmUvY3NzL19zY3NzL2Fic3RyYWN0L192YXJpYWJsZXMuc2NzcyIsImFyY2hpdmUvY3NzL2FyY2hpdmUvY3NzL3Rlcm1zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsaUJBQWlCO0FDQWpCOzswQ0FFMEM7QUFFMUM7MENBQzBDO0FBK0UxQzswQ0FDMEM7QUNyRjFDOzswQ0FFMEM7QUNGMUM7OzBDQUUwQztBQUUxQzswQ0FDMEM7QUFPMUM7MENBQzBDO0FBUTFDOzBDQUMwQztBQ3RCMUM7OzBDQUUwQztBQ0YxQzs7MENBRTBDO0FBRzFDOzswQ0FFMEM7QUFNMUM7OzBDQUUwQztBQUsxQzs7MENBRTBDO0FBTzFDOzswQ0FFMEM7QUFHMUM7MENBQzBDO0FBRzFDOzswQ0FFMEM7QUFHMUM7OzBDQUUwQztBQzFDMUM7RUFDRSxjQUFhO0VBQ2Isb0JBQW1CO0VBQ25CLGNBQWE7RUFDYixtQkFBa0I7RUFDbEIsMkVBQTRFO0NBWTdFOztBQWpCRDtFQVFJLFlBQVc7RUFDWCxZQUFXO0VBQ1gsWUFBVztFQUNYLGVBQWM7RUFDZCxtQkFBa0I7RUFDbEIsMEJEUWlCO0VDUGpCLE9BQU07RUFDTixRQUFPO0NBQ1I7O0FBR0g7RUFDRSxlQUFjO0VBQ2Qsa0JBQWlCO0NBV2xCOztBQVRDO0VBQ0UsbUJBQWtCO0VBQ2xCLGtCQUFpQjtFQUNqQixvQkFBbUI7Q0FDcEI7O0FBRUQ7RUFDRSxpQkFBZ0I7Q0FDakIiLCJmaWxlIjoiYXJjaGl2ZS9jc3MvdGVybXMuY3NzIiwic291cmNlc0NvbnRlbnQiOltdfQ== */

@@ -1,0 +1,45 @@
+//- ------------------------------------
+//- extend
+//-
+extends /_pug/_layouts/_default
+
+//- ------------------------------------
+//- variables this page
+//-
+block variables
+  - const TITLE = '';
+  - const DESCRIPTION = '';
+  - const KEYWORDS = '';
+  - const OG_TYPE = 'website';
+  - const IS_ARCHIVE = true;
+
+//- ------------------------------------
+//- style this page
+//-
+block style
+  +style('css/terms.css')
+
+//- ------------------------------------
+//- content this page
+//-
+block content
+  .main_visual
+    .inner
+      h1.main_visual_title
+        img.main_visual_title_image(src='img/img_main.png' width='505' height='78' alt='日清フーズ レシピ動画ダウンロードサイト')
+  article.article
+    .inner
+      .terms
+        h2.terms_title ご利用の際の注意事項
+        p.terms_text
+          | 本ページをご利用されるにあたり、以下の注意事項をご確認ください。
+          br
+          | ※弊社は本サイトのご利用条件を変更することがありますので、最新の内容をご確認の上ご利用ください。
+        ul.terms_list
+          li.terms_item ・本ページでダウンロードされた動画、画像およびQRコード等のコンテンツは、弊社営業担当とご商談させていただきました範囲内でご利用ください。
+          li.terms_item ・弊社が提供するコンテンツの複製、転載、譲渡、貸与、解析、改変、改ざん、二次利用等はご遠慮ください。
+          li.terms_item ・本サイト内のコンテンツは、予告なしに削除、もしくは内容・仕様の変更を行う場合があります。予めご了承ください。
+          li.terms_item ・既にダウンロードいただいているコンテンツにつきましても、当該製品が終売などの理由でご利用いただけない場合があります。ご使用の際は必ず弊社営業担当にご確認いただきますようよろしくお願いいたします。
+          li.terms_item ・本ページのログインIDおよびパスワードは、一定期間をもって変更させていただきます。ログインできない場合は、弊社担当営業までお問い合わせいただきますようよろしくお願いいたします。
+          li.terms_item ・本サイトは下記に記載させていただいております、「プライバシーポリシー」および「ご利用にあたって」を基に運用させていただいております。
+          li.terms_item ・その他ご不明点等ございましたら、弊社営業担当までお問い合わせいただきますようよろしくお願いいたします。
