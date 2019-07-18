@@ -140,5 +140,27 @@ utils = {
     lastChild: function(curEle) {
         var children = this.children(curEle);
         return children.length > 0 ? children[children.length - 1] : null;
+    },
+    append: function(newEle, container) {
+        container.appendChild(newEle);
+    },
+    prepend: function(newEle, container) {
+        var firstChild = this.firstChild(container);
+        if(firstChild) {
+            container.insertBefore(newEle, firstChild);
+            return;
+        }
+        container.appendChild(newEle);
+    },
+    insertBefore: function(newEle, oldEle) {
+        oldEle.parentNode.insertBefore(newEle, oldEle);
+    },
+    insertAfter: function(newEle, oldEle) {
+        var next = this.next(oldEle);
+        if(next) {
+            oldEle.parentNode.insertBefore(newEle, next);
+            return;
+        }
+        oldEle.parentNode.appendChild(newEle);
     }
-}
+} 
