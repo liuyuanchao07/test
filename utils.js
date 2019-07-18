@@ -1,19 +1,19 @@
+var flag = "getComputedStyle" in window;
 utils = {
     listToArray: function(listAry) {
+        if(flag) {
+            return Array.prototype.slice.call(listAry, 0);
+        };
         var ary = [];
-        try {
-            ary = Array.prototype.slice.call(listAry);
-        } catch (e) {
-            for(var i = 0; i < listAry.length; i++) {
-              ary[ary.length] = listAry[i];
-            }
+        for(var i = 0; i < listAry.length; i++) {
+            ary[ary.length] = listAry[i];
         }
         return ary;
     },
     getCss: function(ele, attr, pseudo) {
         var val = null;
         var reg = null;
-        if("getComputedStyle" in window) {
+        if(flag) {
             if(pseudo) {
                 val = window.getComputedStyle(ele, pseudo)[attr];
             } else {
@@ -56,7 +56,7 @@ utils = {
     },
     children: function(curEle, tagName) {
         var ary = [];
-        if(/MSIE (6|7|8)/i.test(navigator.userAgent)) {
+        if(!flag) {
             var nodeList = curEle.childNodes;
             for(var i = 0; i < nodeList.length; i++) {
                 if(nodeList[i].nodeType === 1) {
