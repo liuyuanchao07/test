@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="description">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="title">
+    <meta property="og:site_name" content="site_name">
+    <meta property="og:description" content="description">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <style type="text/css">
+			hrml, body {
+				height: 8000px;
+				background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(38,204,38,1) 27%,rgba(34,183,143,1) 49%,rgba(211,40,51,1) 78%,rgba(125,185,232,1) 100%);
+			}
+			.pagetop {
+				position:fixed;
+				right: 20px;
+				bottom: 20px;
+				width:50px;
+				height:50px;
+				background-color:#FFF;
+				cursor: pointer;
+				display: none;
+			}
+    </style>
+    <script type="text/javascript" charset="utf-8" src="utils.js"></script>
+    <script type="text/javascript">
+			window.onload = function() {
+				var temp = document.createElement("div");
+				temp.className = "pagetop";
+				document.body.appendChild(temp);
+				
+				var pagetop = document.querySelector(".pagetop");
+				var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				var duration = 500;
+				var rate = 10;
+				
+				function scrollFn() {
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(scrollTop > windowHeight) {
+						pagetop.style.display = "block";
+					} else {
+						pagetop.style.display = "none";
+					}
+				}
+				
+				window.onscroll = function() {
+					scrollFn();
+				}
+				
+				pagetop.onclick = function() {
+					window.onscroll = null;
+					pagetop.style.display = "none";
+					var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+					var step = scrollHeight / duration * rate;
+					var timer = window.setInterval(function() {
+						scrollHeight -= step;
+						if(scrollHeight <= 0) {
+							window.clearInterval(timer);
+							window.onscroll = function() {
+								scrollFn();
+							}
+							return;
+						}
+						document.documentElement.scrollTop = scrollHeight;
+						document.body.scrollTop = scrollHeight;
+					}, rate)
+				}
+			}
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
