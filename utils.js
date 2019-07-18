@@ -47,6 +47,9 @@ utils = {
         }
         return {left: totalLeft, top: totalTop};
     },
+    formatJSON: function(jsonStr) {
+        return "JSON" in window ? JSON.parse(jsonStr) : eval("(" + jsonStr + ")");
+    },
     win: function(attr, value) {
         if(typeof value === "undefined") {
             return document.documentElement[attr] || document.body[attr];
@@ -108,25 +111,34 @@ utils = {
         return next;
     },
     nextAll: function(curEle) {
-        // var ary = [];
-        // var next = this.next(curEle);
-        // while(next) {
-        //     ary.push(next);
-        //     next = this.next(next);
-        // }
-        // return ary;
-
         var ary = [];
-        var next = curEle.nextSibling;
+        var next = this.next(curEle);
         while(next) {
-            if(next.nodeType === 1) {
-                ary.push(next);
-                next = next.nextSibling;
-            } else {
-                next = next.nextSibling;
-            }
-            
+            ary.push(next);
+            next = this.next(next);
         }
         return ary;
     },
+    sibling: function(curEle) {
+        var ary =[];
+        var prev = this.prev(curEle);
+        var next = this.next(curEle);
+        prev ? ary.unshift(prev) : null;
+        next ? ary.push(next) : null;
+        return ary;
+    },
+    siblings: function(curEle) {
+        return this.prevAll(curEle).concat(this.nextAll(curEle));
+    },
+    index: function(curEle) {
+        return this.prevAll(curEle).length;
+    },
+    firstChild: function(curEle) {
+        var children = this.children(curEle);
+        return children.length > 0 ? children[0] : null;
+    },
+    lastChild: function(curEle) {
+        var children = this.children(curEle);
+        return children.length > 0 ? children[children.length - 1] : null;
+    }
 }
