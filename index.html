@@ -39,16 +39,16 @@
     <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript">
       window.onload = function() {
-        var box = document.getElementById("box");
-        console.log(utils.children(box, "span"));
+        var current = document.getElementById("current");
+        console.log(utils.nextAll(current));
       }
     </script>
   </head>
   <body>
     <div id="box">
-      <span></span>
+      <span id="current"></span>
       <p></p>
-      <p></p>
+      <p></p><!---->
       <span></span>
       <p></p>
       <p></p>

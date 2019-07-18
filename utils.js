@@ -10,32 +10,32 @@ utils = {
         }
         return ary;
     },
-    getCss: function(ele, attr, pseudo) {
+    getCss: function(curEle, attr, pseudo) {
         var val = null;
         var reg = null;
         if(flag) {
             if(pseudo) {
-                val = window.getComputedStyle(ele, pseudo)[attr];
+                val = window.getComputedStyle(curEle, pseudo)[attr];
             } else {
-                val = window.getComputedStyle(ele, null)[attr];
+                val = window.getComputedStyle(curEle, null)[attr];
             };
         } else {
             if(attr === "opacity") {
-                val = ele.currentStyle["filter"];
+                val = curEle.currentStyle["filter"];
                 reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
                 val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
             } else {
-                val = ele.currentStyle[attr];
+                val = curEle.currentStyle[attr];
             };
         }
         reg = /^(-?\d+(\.\d+)?)(em|rem|pt|px)?$/i;
         val = reg.test(val) ? parseFloat(val) : val;
         return val;
     },
-    offset: function(ele) {
-        var totalLeft = ele.offsetLeft;
-        var totalTop = ele.offsetTop;
-        var parent = ele.offsetParent;
+    offset: function(curEle) {
+        var totalLeft = curEle.offsetLeft;
+        var totalTop = curEle.offsetTop;
+        var parent = curEle.offsetParent;
         while(parent) {
             if(navigator.userAgent.indexOf("MSIE 8.0" === -1)) {
                 totalLeft += parent.clientLeft;
@@ -77,5 +77,56 @@ utils = {
             }
         }
         return ary;
-    }
+    },
+    prev: function(curEle) {
+        if(flag) {
+            return curEle.previousElementSibling;
+        }
+        var prev = curEle.previousSibling;
+        while(prev && prev.nodeType !== 1) {
+            prev = prev.previousSibling;
+        };
+        return prev;
+    },
+    prevAll: function(curEle) {
+        var ary = [];
+        var prev = this.prev(curEle);
+        while(prev) {
+            ary.unshift(prev);
+            prev = this.prev(prev);
+        }
+        return ary;
+    },
+    next: function(curEle) {
+        if(flag) {
+            return curEle.nextElementSibling;
+        }
+        var next = curEle.nextSibling;
+        while(next && next.nodeType !== 1) {
+            next = next.nextSibling;
+        };
+        return next;
+    },
+    nextAll: function(curEle) {
+        // var ary = [];
+        // var next = this.next(curEle);
+        // while(next) {
+        //     ary.push(next);
+        //     next = this.next(next);
+        // }
+        // return ary;
+
+        var ary = [];
+        var next = curEle.nextSibling;
+        while(next) {
+            if(next.nodeType === 1) {
+                ary.push(next);
+                next = next.nextSibling;
+            } else {
+                next = next.nextSibling;
+            }
+            
+        }
+        return ary;
+    },
 }
