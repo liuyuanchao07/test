@@ -12,48 +12,57 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
     <style type="text/css">
-      .outer {
-        width: 180px;
-        height: 180px;
-        border: 10px solid #000;
-        padding: 50px;
-        background-color: aqua;
-        position: relative;
-      }
-      .inner {
-        width: 60px;
-        height: 60px;
-        border: 10px solid #000;
-        padding: 50px;
-        background-color: blueviolet;
-        position: relative;
-      }
-      .center {
-        width: 40px;
-        height: 40px;
-        background-color: blue;
-        border: 10px solid #000;
-      }
-						#box::before {
-						  content: "hello";
-								height: 300px;
-						}
+    .scroll {
+      width: 700px;
+      background-color: #ccc;
+      margin: 0 auto;
+    }
+    .inner {
+      height: 35px;
+      line-height: 35px;
+      padding: 0 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 0;
+    }
+    .scroll .begin,
+    .scroll .end {
+      display: inline-block;
+      font-size: 14px;
+    }
+    .scroll .begin span,
+    .scroll .end span {
+      color: #ff0000;
+      font-weight: bold;
+    }
     </style>
-    <script type="text/javascript" charset="utf-8" src="utils.js"></script>
+    <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function(){
-        var box = document.querySelector(".center");
-        console.log(utils.offset(box)["top"])
-      },false)
+      window.onload = function() {
+        var box = document.getElementById("box");
+        console.log(utils.children(box, "span"));
+      }
     </script>
   </head>
   <body>
-    <div class="outer">
-      <div class="inner">
-        <div class="center">
-          
-        </div>
-      </div>
+    <div id="box">
+      <span></span>
+      <p></p>
+      <p></p>
+      <span></span>
+      <p></p>
+      <p></p>
+      <span></span>
+      <p></p>
+      <span></span>
+      <p></p>
+      <p></p>
+      <span></span>
+      <p></p>
+      <span></span>
+      <p></p>
+      <p></p>
+      <p></p>
     </div>
   </body>
 </html>
