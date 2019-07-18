@@ -1,0 +1,1117 @@
+@charset "UTF-8";
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  reset
+----------------------------------------*/
+/* stylelint-disable selector-max-type */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*----------------------------------------
+  base
+----------------------------------------*/
+/* stylelint-disable selector-max-type */
+body {
+  min-width: 0;
+}
+
+/*----------------------------------------
+  components
+----------------------------------------*/
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  デバイス別 切替
+----------------------------------------*/
+/*  表示
+----------------------------------------*/
+.pc_appear {
+  display: none;
+}
+
+.sp_appear {
+  display: block;
+}
+
+/*  改行
+----------------------------------------*/
+.pc_break {
+  display: none;
+}
+
+.sp_break {
+  display: inline;
+}
+
+/*  電話番号リンク
+----------------------------------------*/
+.tel_for_sp {
+  pointer-events: auto;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  topic path
+----------------------------------------*/
+.topic_path {
+  display: none;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  link button sp
+----------------------------------------*/
+.link_button {
+  width: 294px;
+  height: 60px;
+  font-size: 1.6rem;
+}
+
+.link_button:hover {
+  color: #670d0d;
+  border: 1px solid #670d0d;
+}
+
+.link_button:hover.o-crease_brown::after {
+  background-color: #670d0d;
+}
+
+/*----------------------------------------
+  other_button
+----------------------------------------*/
+.other_button_text {
+  font-size: 1.6rem;
+}
+
+.other_button_text::before {
+  width: 22px;
+  height: 22px;
+}
+
+.other_button::before {
+  left: 6px;
+  margin-top: 1px;
+}
+
+.other_button::after {
+  bottom: -1px;
+  left: 7px;
+}
+
+/*----------------------------------------
+  filter_radio_wrapper
+----------------------------------------*/
+.filter_radio_wrapper .filter_radio_label_text {
+  margin-bottom: 10px;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  sns banner sp
+----------------------------------------*/
+.sns_banner_wrapper {
+  width: 100%;
+}
+
+.sns_banner_wrapper.o-side .sns_banner_link_wrapper {
+  width: 100%;
+  max-width: 294px;
+  margin: 0 auto;
+}
+
+.sns_banner_wrapper.o-top {
+  display: block;
+}
+
+.sns_banner_wrapper.o-top .sns_banner_link {
+  width: 100%;
+  max-width: 288px;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sns_banner_wrapper.o-top .sns_banner_wrapper_right {
+  margin-left: 0;
+}
+
+.sns_banner_wrapper.o-top .sns_banner_content_wrapper {
+  margin-top: 0;
+  padding-bottom: 22px;
+}
+
+.sns_banner_content_wrapper {
+  flex-direction: column;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.sns_banner_link {
+  padding-right: 10px;
+  height: 60px;
+}
+
+.sns_banner_link:hover {
+  color: #670d0d;
+  text-decoration: none;
+}
+
+.sns_banner_link_wrapper {
+  width: 100%;
+  max-width: 294px;
+  margin: 0 auto;
+}
+
+.sns_banner_description_wrapper {
+  margin: 12px 0 0 0;
+}
+
+.sns_banner_wrapper.o-side {
+  width: 100%;
+}
+
+.sns_banner_wrapper.o-side .sns_banner_description_wrapper {
+  margin-top: 0;
+}
+
+.sns_banner_wrapper.o-side .sns_banner_link {
+  height: 55px;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  人気レシピ　レシピランキング
+----------------------------------------*/
+.recipe_ranking_link:hover .recipe_ranking_title,
+.recipe_ranking_link:hover .recipe_ranking_content {
+  color: #670d0d;
+}
+
+.recipe_ranking_link:hover .recipe_ranking_image {
+  opacity: 1;
+}
+
+.recipe_ranking_image_wrapper {
+  width: 98px;
+  height: 98px;
+}
+
+.recipe_ranking_count .number {
+  font-size: 2.6rem;
+}
+
+.recipe_ranking_count .count {
+  font-size: 1.8rem;
+}
+
+.recipe_ranking_title {
+  font-size: 1.6rem;
+}
+
+.recipe_ranking_content {
+  font-size: 1.4rem;
+}
+
+.recipe_ranking_content_wrapper {
+  margin-left: 10px;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  entry search
+----------------------------------------*/
+.entry_search_input {
+  font-size: 1.6rem;
+  height: 50px;
+  line-height: 50px;
+}
+
+.entry_search_button {
+  width: 60px;
+  height: 50px;
+  background: url(../img/share/ico_search.png) no-repeat center center;
+  background-size: 24px 24px;
+}
+
+.mf_finder_searchBox_query_input {
+  font-size: 1.6rem;
+  height: 50px;
+  line-height: 50px;
+}
+
+.mf_finder_searchBox_submit {
+  width: 60px;
+  height: 50px;
+  background: url(../img/share/ico_search.png) no-repeat center center;
+  background-size: 24px 24px;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  pickup
+----------------------------------------*/
+.pickup_list_item {
+  padding: 30px 10px 25px 0;
+}
+
+.pickup_list_anchor {
+  color: #670d0d;
+}
+
+.pickup_list_anchor:hover {
+  color: #670d0d;
+}
+
+.pickup_list_anchor:hover .pickup_list_image {
+  opacity: 1;
+}
+
+.pickup_list_photo {
+  flex: 0 0 60px;
+  height: 60px;
+}
+
+.pickup_list_image {
+  width: 100%;
+  height: auto;
+}
+
+.pickup_list_entry {
+  padding-left: 11px;
+}
+
+.pickup_list_title {
+  font-size: 1.8rem;
+}
+
+.pickup_list_title_heading {
+  padding-top: 2px;
+  font-size: 1.4rem;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  aside
+----------------------------------------*/
+.aside {
+  width: 100%;
+  padding: 0 20px;
+  margin-bottom: 80px;
+}
+
+.aside_title {
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.aside .recipe_ranking_image_wrapper {
+  width: 59px;
+  height: 59px;
+}
+
+.aside .recipe_ranking_count .count {
+  font-size: 2.0rem;
+}
+
+.aside .recipe_ranking_title {
+  font-size: 1.8rem;
+}
+
+.aside .recipe_ranking_content {
+  font-size: 1.4rem;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  basis
+----------------------------------------*/
+.aside .basis_list_anchor:hover {
+  color: #670d0d;
+}
+
+.aside .basis_list_anchor:hover .basis_list_image {
+  opacity: 1;
+}
+
+.aside .basis_list_photo {
+  flex: 0 0 118px;
+}
+
+.aside .basis_list_title {
+  font-size: 1.8rem;
+}
+
+/*----------------------------------------
+  layouts
+----------------------------------------*/
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*----------------------------------------
+  header
+----------------------------------------*/
+.o-body_modal {
+  position: fixed;
+}
+
+.header {
+  height: 60px;
+  /*  hamburger menu
+  ----------------------------------------*/
+}
+
+.header_inner {
+  width: 100%;
+  padding: 0;
+}
+
+.header_logo {
+  position: relative;
+  width: 65px;
+  margin-left: 13px;
+  height: auto;
+}
+
+.header_logo_anchor {
+  width: 100%;
+  margin: 0;
+}
+
+.header::before {
+  content: none;
+}
+
+.header_button_icon {
+  position: relative;
+  width: 20px;
+  height: 14px;
+}
+
+.header_button_icon_unit {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.header_button_icon_unit:first-child {
+  top: 0;
+}
+
+.header_button_icon_unit:nth-child(2) {
+  top: 10px;
+}
+
+.header_button_text {
+  padding-top: 2px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/*  global nav
+----------------------------------------*/
+.global_nav {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  z-index: 20;
+  overflow: hidden;
+  display: none;
+}
+
+.global_nav::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  z-index: 5;
+  transition: 0.2s opacity;
+}
+
+.global_nav.o-activating {
+  display: block;
+}
+
+.global_nav.o-activated::after {
+  opacity: 0.4;
+}
+
+.global_nav.o-activated .global_nav_open {
+  right: 0;
+}
+
+.global_nav_btn {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  padding-top: 6px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #e50018;
+  border: none;
+}
+
+.global_nav_btn.o-activated .header_button_icon_unit:nth-child(1) {
+  top: 5px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.global_nav_btn.o-activated .header_button_icon_unit:nth-child(2) {
+  top: 5px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.global_nav_open {
+  transition: 0.2s right;
+  height: calc(100vh - 60px);
+  background-color: #f4f0ea;
+  overflow: auto;
+  position: absolute;
+  right: -257px;
+  z-index: 10;
+}
+
+.global_nav_list {
+  padding-top: 18px;
+  flex-direction: column;
+}
+
+.global_nav_list_item {
+  padding: 0 20px;
+}
+
+.global_nav_list_item::after {
+  display: none;
+}
+
+.global_nav_anchor {
+  padding: 20px 0;
+  width: 217px;
+  border-bottom: 1px solid #dbbea6;
+  display: block;
+  position: relative;
+}
+
+.global_nav_search {
+  padding: 40px 20px 0 40px;
+}
+
+.global_nav_search .mf_finder_searchBox {
+  width: 217px;
+}
+
+.global_nav_search .mf_finder_searchBox_query_input {
+  font-size: 1.4rem;
+}
+
+/*----------------------------------------
+  arrow icon
+----------------------------------------*/
+/*  ▲
+----------------------------------------*/
+/*  ＞
+----------------------------------------*/
+/*----------------------------------------
+  SP のコンテンツ両端に入るオフセットを padding として追加する
+----------------------------------------*/
+/*----------------------------------------
+  Youtube 埋め込み動画 mixin
+----------------------------------------*/
+/*  PC 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  SP 埋め込み動画(iframe)ラッパー
+----------------------------------------*/
+/*  埋め込み動画(iframe)
+----------------------------------------*/
+/*----------------------------------------
+  z-index を名前で指定
+----------------------------------------*/
+/*----------------------------------------
+  browser default value
+----------------------------------------*/
+/*----------------------------------------
+  base
+----------------------------------------*/
+/*----------------------------------------
+  z-index
+----------------------------------------*/
+/*----------------------------------------
+  color
+----------------------------------------*/
+/*----------------------------------------
+  opacity
+----------------------------------------*/
+/*  font weight
+----------------------------------------*/
+/*----------------------------------------
+  size
+----------------------------------------*/
+/*----------------------------------------
+  transition
+----------------------------------------*/
+/*  page top
+----------------------------------------*/
+.page_top {
+  bottom: 216px;
+  right: 20px;
+}
+
+/*----------------------------------------
+  footer
+----------------------------------------*/
+.footer_copyright {
+  height: 55px;
+  font-size: 1.0rem;
+}
+
+.footer_logo {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.footer_logo_image {
+  width: 157px;
+}
+
+/*  footer nav
+----------------------------------------*/
+.footer_nav {
+  padding-top: 45px;
+  display: block;
+}
+
+.footer_nav_img {
+  width: 182px;
+}
+
+.footer_nav_list {
+  display: block;
+}
+
+.footer_nav_list_item {
+  display: inline-block;
+}
+
+.footer_nav_list_item.o-main {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/*----------------------------------------
+  typographies
+----------------------------------------*/
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@media screen and (orientation: landscape) {
+  .global_nav_list {
+    overflow: auto;
+    height: calc(100% + 120px);
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNzcy9zaGFyZV9zcC5jc3MiLCJub2RlX21vZHVsZXMvQG9yby9zdGF0aWMtc2l0ZS1tb2R1bGVzL19zY3NzL21peGlucy9fYXJyb3cuc2NzcyIsIm5vZGVfbW9kdWxlcy9Ab3JvL3N0YXRpYy1zaXRlLW1vZHVsZXMvX3Njc3MvbWl4aW5zL19zcF9vZmZzZXQuc2NzcyIsIm5vZGVfbW9kdWxlcy9Ab3JvL3N0YXRpYy1zaXRlLW1vZHVsZXMvX3Njc3MvbWl4aW5zL195b3V0dWJlLnNjc3MiLCJub2RlX21vZHVsZXMvQG9yby9zdGF0aWMtc2l0ZS1tb2R1bGVzL19zY3NzL21peGlucy9fel9pbmRleC5zY3NzIiwiY3NzL19zY3NzL2Fic3RyYWN0L192YXJpYWJsZXMuc2NzcyIsImNzcy9jc3Mvc2hhcmVfc3Auc2NzcyIsIm5vZGVfbW9kdWxlcy9Ab3JvL3N0YXRpYy1zaXRlLW1vZHVsZXMvX3Njc3MvX3Jlc2V0X3NwLnNjc3MiLCJjc3MvX3Njc3MvX2Jhc2Vfc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL19kZXZpY2Vfc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL190b3BpY19wYXRoX3NwLnNjc3MiLCJjc3MvX3Njc3MvY29tcG9uZW50cy9fbGlua19idXR0b25fc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL19zbnNfYmFubmVyX3NwLnNjc3MiLCJjc3MvX3Njc3MvY29tcG9uZW50cy9fcmVjaXBlX3Jhbmtpbmdfc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL19zZWFyY2hfc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL19waWNrdXBfc3Auc2NzcyIsImNzcy9fc2Nzcy9jb21wb25lbnRzL19hc2lkZV9zcC5zY3NzIiwiY3NzL19zY3NzL2NvbXBvbmVudHMvX2Jhc2lzX3NwLnNjc3MiLCJjc3MvX3Njc3MvbGF5b3V0cy9faGVhZGVyX3NwLnNjc3MiLCJjc3MvX3Njc3MvbGF5b3V0cy9fZm9vdGVyX3NwLnNjc3Mi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QztBQUcxQzs7MENBRTBDO0FBRzFDOzswQ0FFMEM7QWMzQzFDOzBDQUMwQztBQUMxQztFQUNFLGNBQWE7RUFDYixZQUFXO0NBQ1o7O0FBQ0Q7OzBDQUUwQztBQUd4QztFQUNFLGFBQVk7RUFDWixrQkFBaUI7Q0FDbEI7O0FBRUQ7RUFDRSxpQkFBZ0I7RUFDaEIsa0JBQWlCO0NBS2xCOztBQUhDO0VBQ0UsYUFBWTtDQUNiOztBQUlMOzBDQUMwQztBQUMxQztFQUNFLGtCQUFpQjtFQUNqQixlQUFjO0NBa0JmOztBQWhCQztFQUNFLGFBQVk7Q0FDYjs7QUFFRDtFQUNFLGVBQWM7Q0FVZjs7QUFSQztFQUNFLHNCQUFxQjtDQU10Qjs7QUFQQTtFQUlHLFlBQVc7RUFDWCxvQkFBbUI7Q0FDcEI7O0FiWlA7OzBDQUUwQztBQUUxQztFQUNFLFlBQVc7RUFDWCxlQUFjO0VBQ2QsV0FBVTtDQUNYOztBWTBHRztFQUpGO0lBS0ksZUFBYztJQUNkLDJCQUEwQjtHQVU3QjtDbEJvekJGIiwiZmlsZSI6ImNzcy9zaGFyZV9zcC5jc3MiLCJzb3VyY2VzQ29udGVudCI6W119 */

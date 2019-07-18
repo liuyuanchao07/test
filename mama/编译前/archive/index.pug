@@ -1,0 +1,1181 @@
+//- ------------------------------------
+//- extend
+//-
+extends /_pug/_layouts/_default
+
+//- ------------------------------------
+//- mixins
+//-
+mixin recipeList(list)
+  ul.recipe_list
+    each item, index in list
+      li.recipe_item(class={'o-hide':index >= 20} data-category=item.category.join(' '))
+        .recipe_photo
+          a.recipe_anchor(href=item.recipeAnchor target='_blank')
+            img.recipe_image(src=`img/recipe/${item.image}.jpg` width='210' height='210' alt=item.title)
+        p.recipe_date=`公開月：${item.date}`
+        ul.recipe_category
+          each children in item.categoryJP
+            li.recipe_category_item=children
+        h3.recipe_title
+          a.recipe_title_anchor(href=item.recipeAnchor target='_blank')=item.title
+        dl.recipe_product
+          dt.recipe_product_title 使用商品
+          each children in item.product
+            dd.recipe_product_item
+              a.recipe_product_item_anchor(href=children.productAnchor target='_blank')!=children.productText
+        p.recipe_button
+          a.recipe_button_anchor(href=item.downloadAnchor)
+            span.recipe_button_icon ダウンロード
+
+//- ------------------------------------
+//- variables this page
+//-
+block variables
+  - const TITLE = '日清フーズ　レシピ動画ダウンロードサイト';
+  - const DESCRIPTION = '';
+  - const KEYWORDS = '';
+  - const OG_TYPE = 'website';
+  - const IS_ARCHIVE = true;
+
+//- ------------------------------------
+//- style this page
+//-
+block style
+  +style('css/index.css')
+
+block scripts
+  +script('js/index.js')
+
+//- ------------------------------------
+//- content this page
+//-
+block content
+  -
+    const recipeList = [
+      {
+        image: 'img-recipe_1',
+        date: '2019年1月',
+        title: 'もち麦リゾットde洋風そばめし風',
+        product: [
+          {
+            productText: 'マ・マー わたし思いの もち麦リゾット ポルチーニクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372281.html'
+          },
+          {
+            productText: 'マ・マー 早ゆで3分スパゲティ ミニ1.6mm',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110362107.html'
+          }
+        ],
+        category: ['reitou','kanmen'],
+        categoryJP: ['冷凍パスタ','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe151.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_2',
+        date: '2019年1月',
+        title: 'ソースと一緒に炒めて簡単！ボロネーゼソースのピり辛炒め',
+        product: [
+          {
+            productText: 'マ・マー　PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe148.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_3',
+        date: '2019年1月',
+        title: 'ソースで簡単味付け！ボロネーゼのバケットキッシュ',
+        product: [
+          {
+            productText: 'マ・マー　PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe152.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_4',
+        date: '2019年1月',
+        title: 'カルボナーラ入りふわふわスフレ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA 4種チーズのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386271.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe149.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_5',
+        date: '2019年1月',
+        title: 'イースター☆ナポリタンバーグ',
+        product: [
+          {
+            productText: 'マ・マー　いろいろ便利なナポリタンスパゲティ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110338133.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe150.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_6',
+        date: '2018年12月',
+        title: '濃厚明太子クリームdeオープンいなり',
+        product: [
+          {
+            productText: 'マ・マー　超もち生パスタ<br>北海道生クリームの濃厚明太子クリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303315.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe133.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_7',
+        date: '2018年12月',
+        title: '生地作りもラクラク！イタリアンもんじゃ',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>香ばしソーセージのナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328608.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe132.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_8',
+        date: '2018年12月',
+        title: '重ねて焼くだけ！お肉ごろごろミートソースのパングラタン',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>お肉ごろごろのミートソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110319002.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe131.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_9',
+        date: '2018年12月',
+        title: 'たらこと野沢菜の和風スープパスタ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA たらこと野沢菜',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386257.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe130.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_10',
+        date: '2018年12月',
+        title: 'あさりたっぷり！ボンゴレ洋風鍋',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>あさりごろごろのボンゴレ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328707.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe129.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_11',
+        date: '2018年11月',
+        title: 'おしゃれにアレンジ！豚肉と野菜のトマトソース包み焼き',
+        product: [
+          {
+            productText: 'マ・マー トマトの果肉たっぷりのなすトマト',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374476.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe127.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_12',
+        date: '2018年11月',
+        title: 'ソースを使って簡単！ボロネーゼの焼きタコライス',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe147.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_13',
+        date: '2018年11月',
+        title: 'ハートのぷちぷちもち麦コロッケ',
+        product: [
+          {
+            productText: 'マ・マー　わたし思いのもち麦リゾット 完熟トマトソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372274.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe129.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_14',
+        date: '2018年11月',
+        title: 'ナポリタンのパスタネスト',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA ソテースパゲティ ナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386288.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe126.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_15',
+        date: '2018年11月',
+        title: 'アメリケーヌソースの旨み広がるフリッタータ',
+        product: [
+          {
+            productText: 'マ・マー 超もち生パスタ<br>アメリケーヌソースの濃厚海老トマトクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303278.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe128.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_16',
+        date: '2018年10月',
+        title: 'ピリ辛パスタチヂミ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA 海老とほうれん草のトマトクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303506.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe122.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_17',
+        date: '2018年10月',
+        title: 'イタリアンパスタ春巻き',
+        product: [
+          {
+            productText: 'マ・マー　超もち生パスタ<br>4種チーズとほうれん草の濃厚カルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303308.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe121.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_18',
+        date: '2018年10月',
+        title: 'タネ作りも簡単！ボロネーゼのコロッケ風',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe125.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_19',
+        date: '2018年10月',
+        title: 'ソースを使ってリッチに！ボロネーゼオムライス',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe123.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_20',
+        date: '2018年10月',
+        title: 'ごはんと合わせて簡単!ボロネーゼdeドリア',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe124.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_21',
+        date: '2018年9月',
+        title: 'イタ飯風冷汁つけパスタ',
+        product: [
+          {
+            productText: 'マ・マー　香味野菜たっぷりのあさりコンソメ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374391.html'
+          },
+          {
+            productText: 'マ・マー　スパゲティ（1.4mm）',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110304022.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe120.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_22',
+        date: '2018年9月',
+        title: 'ゴーヤのペペロンチーノパスタ',
+        product: [
+          {
+            productText: 'マ・マー　スパゲティ（1.6mm）',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110304053.html'
+          }
+        ],
+        category: ['kanmen'],
+        categoryJP: ['乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe119.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_23',
+        date: '2018年9月',
+        title: '濃厚★冷やしカルボナーラ蕎麦',
+        product: [
+          {
+            productText: 'マ・マー　ミルクたっぷりのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374612.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe118.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_24',
+        date: '2018年9月',
+        title: '白菜たっぷり味噌カルボナーラ',
+        product: [
+          {
+            productText: 'マ・マー　リッチセレクト　たっぷりベーコンのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328660.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe117.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_25',
+        date: '2018年9月',
+        title: '長芋の和風しょうゆグラタン',
+        product: [
+          {
+            productText: 'マ・マー いろいろ便利な和風しょうゆスパゲティ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372021.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe114.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_26',
+        date: '2018年9月',
+        title: '焼きそばチーズカップ',
+        product: [
+          {
+            productText: 'マ・マー いろいろ便利な ソース焼きそば',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110357882.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe116.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_27',
+        date: '2018年9月',
+        title: 'タイ風あったか麺',
+        product: [
+          {
+            productText: 'マ・マー　THE PASTA ボンゴレビアンコ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372168.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe115.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_28',
+        date: '2018年8月',
+        title: '明太子パスタピザ風',
+        product: [
+          {
+            productText: 'マ･マー 超もち⽣パスタ<br>北海道産生クリームの濃厚明太子クリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303315.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/frozen/recipe107.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_29',
+        date: '2018年8月',
+        title: '驚きの見た目！クルルのハロウィンキッシュ',
+        product: [
+          {
+            productText: 'マ･マー クルル',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110326659.html'
+          }
+        ],
+        category: ['kanmen'],
+        categoryJP: ['乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe110.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_30',
+        date: '2018年8月',
+        title: '一緒にゆでて時短！きのこたっぷりのミートソース',
+        product: [
+          {
+            productText: 'マ･マー 早ゆで3分スパゲティ　1.6mm',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110362411.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe105.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_31',
+        date: '2018年8月',
+        title: 'ボロネーゼ担々麺',
+        product: [
+          {
+            productText: 'マ･マー超もち⽣パスタ<br>デミグラスソース仕立ての濃厚ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110329131.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe106.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_32',
+        date: '2018年8月',
+        title: 'ケチャッピーナポリタンで味付け簡単！ハロウィンバーグ',
+        product: [
+          {
+            productText: 'マ･マー 具入り<br>ケチャッピーナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110367348.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe109.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_33',
+        date: '2018年8月',
+        title: 'クリーミーな味わい！ハロウィンかぼちゃのミートパイ',
+        product: [
+          {
+            productText: 'マ･マー リッチセレクト<br>お肉の旨み豊かなクリーミーミートソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328653.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe108.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_34',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　和風あんかけハンバーグ',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=HWmdTIfCYrs',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_35',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　鶏のから揚げ',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=SzaqKPSAxa0',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_36',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　麻婆豆腐',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=HBkCUUHUzlc',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_1',
+        date: '2019年1月',
+        title: 'もち麦リゾットde洋風そばめし風',
+        product: [
+          {
+            productText: 'マ・マー わたし思いの もち麦リゾット ポルチーニクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372281.html'
+          },
+          {
+            productText: 'マ・マー 早ゆで3分スパゲティ ミニ1.6mm',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110362107.html'
+          }
+        ],
+        category: ['reitou','kanmen'],
+        categoryJP: ['冷凍パスタ','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe151.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_2',
+        date: '2019年1月',
+        title: 'ソースと一緒に炒めて簡単！ボロネーゼソースのピり辛炒め',
+        product: [
+          {
+            productText: 'マ・マー　PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe148.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_3',
+        date: '2019年1月',
+        title: 'ソースで簡単味付け！ボロネーゼのバケットキッシュ',
+        product: [
+          {
+            productText: 'マ・マー　PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe152.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_4',
+        date: '2019年1月',
+        title: 'カルボナーラ入りふわふわスフレ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA 4種チーズのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386271.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe149.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_5',
+        date: '2019年1月',
+        title: 'イースター☆ナポリタンバーグ',
+        product: [
+          {
+            productText: 'マ・マー　いろいろ便利なナポリタンスパゲティ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110338133.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe150.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_6',
+        date: '2018年12月',
+        title: '濃厚明太子クリームdeオープンいなり',
+        product: [
+          {
+            productText: 'マ・マー　超もち生パスタ<br>北海道生クリームの濃厚明太子クリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303315.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe133.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_7',
+        date: '2018年12月',
+        title: '生地作りもラクラク！イタリアンもんじゃ',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>香ばしソーセージのナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328608.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe132.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_8',
+        date: '2018年12月',
+        title: '重ねて焼くだけ！お肉ごろごろミートソースのパングラタン',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>お肉ごろごろのミートソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110319002.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe131.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_9',
+        date: '2018年12月',
+        title: 'たらこと野沢菜の和風スープパスタ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA たらこと野沢菜',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386257.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe130.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_10',
+        date: '2018年12月',
+        title: 'あさりたっぷり！ボンゴレ洋風鍋',
+        product: [
+          {
+            productText: 'マ・マー リッチセレクト<br>あさりごろごろのボンゴレ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328707.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe129.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_11',
+        date: '2018年11月',
+        title: 'おしゃれにアレンジ！豚肉と野菜のトマトソース包み焼き',
+        product: [
+          {
+            productText: 'マ・マー トマトの果肉たっぷりのなすトマト',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374476.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe127.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_12',
+        date: '2018年11月',
+        title: 'ソースを使って簡単！ボロネーゼの焼きタコライス',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe147.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_13',
+        date: '2018年11月',
+        title: 'ハートのぷちぷちもち麦コロッケ',
+        product: [
+          {
+            productText: 'マ・マー　わたし思いのもち麦リゾット 完熟トマトソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372274.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe129.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_14',
+        date: '2018年11月',
+        title: 'ナポリタンのパスタネスト',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA ソテースパゲティ ナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110386288.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe126.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_15',
+        date: '2018年11月',
+        title: 'アメリケーヌソースの旨み広がるフリッタータ',
+        product: [
+          {
+            productText: 'マ・マー 超もち生パスタ<br>アメリケーヌソースの濃厚海老トマトクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303278.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe128.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_16',
+        date: '2018年10月',
+        title: 'ピリ辛パスタチヂミ',
+        product: [
+          {
+            productText: 'マ・マー THE PASTA 海老とほうれん草のトマトクリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303506.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe122.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_17',
+        date: '2018年10月',
+        title: 'イタリアンパスタ春巻き',
+        product: [
+          {
+            productText: 'マ・マー　超もち生パスタ<br>4種チーズとほうれん草の濃厚カルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303308.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe121.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_18',
+        date: '2018年10月',
+        title: 'タネ作りも簡単！ボロネーゼのコロッケ風',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe125.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_19',
+        date: '2018年10月',
+        title: 'ソースを使ってリッチに！ボロネーゼオムライス',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe123.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_20',
+        date: '2018年10月',
+        title: 'ごはんと合わせて簡単!ボロネーゼdeドリア',
+        product: [
+          {
+            productText: 'マ・マー PRO TASTE ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110385991.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe124.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_21',
+        date: '2018年9月',
+        title: 'イタ飯風冷汁つけパスタ',
+        product: [
+          {
+            productText: 'マ・マー　香味野菜たっぷりのあさりコンソメ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374391.html'
+          },
+          {
+            productText: 'マ・マー　スパゲティ（1.4mm）',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110304022.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe120.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_22',
+        date: '2018年9月',
+        title: 'ゴーヤのペペロンチーノパスタ',
+        product: [
+          {
+            productText: 'マ・マー　スパゲティ（1.6mm）',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110304053.html'
+          }
+        ],
+        category: ['kanmen'],
+        categoryJP: ['乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe119.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_23',
+        date: '2018年9月',
+        title: '濃厚★冷やしカルボナーラ蕎麦',
+        product: [
+          {
+            productText: 'マ・マー　ミルクたっぷりのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110374612.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/contest/recipe118.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_24',
+        date: '2018年9月',
+        title: '白菜たっぷり味噌カルボナーラ',
+        product: [
+          {
+            productText: 'マ・マー　リッチセレクト　たっぷりベーコンのカルボナーラ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328660.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe117.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_25',
+        date: '2018年9月',
+        title: '長芋の和風しょうゆグラタン',
+        product: [
+          {
+            productText: 'マ・マー いろいろ便利な和風しょうゆスパゲティ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372021.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe114.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_26',
+        date: '2018年9月',
+        title: '焼きそばチーズカップ',
+        product: [
+          {
+            productText: 'マ・マー いろいろ便利な ソース焼きそば',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110357882.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/quick/recipe116.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_27',
+        date: '2018年9月',
+        title: 'タイ風あったか麺',
+        product: [
+          {
+            productText: 'マ・マー　THE PASTA ボンゴレビアンコ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110372168.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/professional/recipe115.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_28',
+        date: '2018年8月',
+        title: '明太子パスタピザ風',
+        product: [
+          {
+            productText: 'マ･マー 超もち⽣パスタ<br>北海道産生クリームの濃厚明太子クリーム',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110303315.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/frozen/recipe107.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_29',
+        date: '2018年8月',
+        title: '驚きの見た目！クルルのハロウィンキッシュ',
+        product: [
+          {
+            productText: 'マ･マー クルル',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110326659.html'
+          }
+        ],
+        category: ['kanmen'],
+        categoryJP: ['乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe110.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_30',
+        date: '2018年8月',
+        title: '一緒にゆでて時短！きのこたっぷりのミートソース',
+        product: [
+          {
+            productText: 'マ･マー 早ゆで3分スパゲティ　1.6mm',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110362411.html'
+          }
+        ],
+        category: ['sauce','kanmen'],
+        categoryJP: ['パスタソース','乾麺パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe105.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_31',
+        date: '2018年8月',
+        title: 'ボロネーゼ担々麺',
+        product: [
+          {
+            productText: 'マ･マー超もち⽣パスタ<br>デミグラスソース仕立ての濃厚ボロネーゼ',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110329131.html'
+          }
+        ],
+        category: ['reitou'],
+        categoryJP: ['冷凍パスタ'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe106.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_32',
+        date: '2018年8月',
+        title: 'ケチャッピーナポリタンで味付け簡単！ハロウィンバーグ',
+        product: [
+          {
+            productText: 'マ･マー 具入り<br>ケチャッピーナポリタン',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110367348.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe109.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_33',
+        date: '2018年8月',
+        title: 'クリーミーな味わい！ハロウィンかぼちゃのミートパイ',
+        product: [
+          {
+            productText: 'マ･マー リッチセレクト<br>お肉の旨み豊かなクリーミーミートソース',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110328653.html'
+          }
+        ],
+        category: ['sauce','food'],
+        categoryJP: ['パスタソース','冷凍食品'],
+        recipeAnchor: 'https://nisshin-foods.jp/mama/recipe/arrange/recipe108.html',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_34',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　和風あんかけハンバーグ',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=HWmdTIfCYrs',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_35',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　鶏のから揚げ',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=SzaqKPSAxa0',
+        downloadAnchor: '#'
+      },
+      {
+        image: 'img-recipe_36',
+        date: '2018年6月',
+        title: '日清 水溶きいらずのとろみ上手を使って作る　麻婆豆腐',
+        product: [
+          {
+            productText: '日清　水溶きいらずのとろみ上手',
+            productAnchor: 'https://www.nisshin.com/products/detail/4902110314793.html'
+          }
+        ],
+        category: ['mix'],
+        categoryJP: ['粉／ミックス他'],
+        recipeAnchor: 'https://www.youtube.com/watch?v=HBkCUUHUzlc',
+        downloadAnchor: '#'
+      }
+    ]
+  .main_visual
+    .inner
+      h1.main_visual_title
+        img.main_visual_title_image(src='img/img_main.png' width='505' height='78' alt='日清フーズ レシピ動画ダウンロードサイト')
+  article.article
+    nav.recipe_nav
+      ul.recipe_nav_list
+        li.recipe_nav_list_item.o-current(data-category="all") ALL
+        li.recipe_nav_list_item(data-category="kanmen") 乾麺パスタ
+        li.recipe_nav_list_item(data-category="reitou") 冷凍パスタ
+        li.recipe_nav_list_item(data-category="sauce") パスタソース
+        li.recipe_nav_list_item(data-category="food") 冷凍食品
+        li.recipe_nav_list_item(data-category="mix") 粉／ミックス他
+    .inner
+      .recipe_article
+        h2.recipe_lead_title
+          | レシピ動画・レシピ画像・レシピページのQRコードを
+          br
+          | まとめてダウンロードできます！
+        .recipe_terms
+          | ※当ページのデータ利用には、必ず
+          a.recipe_terms_anchor(href="/mama/archive/terms.html" target="_blank") 利用規約
+          | をご確認ください。
+        +recipeList(recipeList)
+        
+        .pagination
+          span.pagination_prev.o-prev.o-hide 前へ
+          p.pagination_list
+          span.pagination_next.o-next 次へ
