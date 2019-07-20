@@ -33,6 +33,16 @@ utils = {
         return val;
     },
     setCss: function(curEle, attr, value) {
+        if(attr === "float") {
+            curEle["style"]["cssFloat"] = value;
+            curEle["style"]["styleFloat"] = value;
+            return;
+        }
+        if(attr === "opacity") {
+            curEle["style"]["opacity"] = value;
+            curEle["style"]["filter"] = "alpha(opacity=" + value * 100 + ")";
+            return;
+        }
         var reg = /^(width|height|top|bottom|left|right|((margin|padding)(Top|Bottom|Left|Right)?))$/;
         if(reg.test(attr)) {
             if(!isNaN(value)) {

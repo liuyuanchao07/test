@@ -39,14 +39,14 @@
     <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript">
       window.onload = function() {
-        var current = document.getElementById("box");
-        console.log(utils.lastChild(current));
+        var box = document.getElementById("box");
+        console.log(utils.setCss(box, "padding", "20px"));
       }
     </script>
   </head>
   <body>
-    <div id="box">
-      <span id="current"></span>
+    <div id="box" class="bg bg2    box2 box3">
+      <span></span>
       <p></p>
       <p></p><!---->
       <span></span>
@@ -54,7 +54,7 @@
       <p></p>
       <span></span>
       <p></p>
-      <span></span>
+      <span id="current"></span>
       <p></p>
       <p></p>
       <span></span>
