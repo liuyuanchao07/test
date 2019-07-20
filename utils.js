@@ -32,6 +32,15 @@ utils = {
         val = reg.test(val) ? parseFloat(val) : val;
         return val;
     },
+    setCss: function(curEle, attr, value) {
+        var reg = /^(width|height|top|bottom|left|right|((margin|padding)(Top|Bottom|Left|Right)?))$/;
+        if(reg.test(attr)) {
+            if(!isNaN(value)) {
+                value += "px";
+            }
+        }
+        curEle["style"][attr] = value;
+    },
     offset: function(curEle) {
         var totalLeft = curEle.offsetLeft;
         var totalTop = curEle.offsetTop;
