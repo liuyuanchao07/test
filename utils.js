@@ -162,5 +162,27 @@ utils = {
             return;
         }
         oldEle.parentNode.appendChild(newEle);
+    },
+    hasClass: function(curEle, className) {
+        var classList = curEle.className;
+        var reg = new RegExp("(^| +)" + className + "( +|$)");
+        return reg.test(classList);
+    },
+    addClass: function(curEle, className) {
+        var ary = className.replace(/(^ +| +$)/g, "").split(/ +/g);
+        for(var i = 0; i < ary.length; i++) {
+            if(!this.hasClass(curEle, ary[i])) {
+                curEle.className += " " + ary[i];
+            }
+        }
+    },
+    removeClass: function(curEle, className) {
+        var ary = className.replace(/(^ +| +$)/g, "").split(/ +/g);
+        for(var i = 0; i < ary.length; i++) {
+            if(this.hasClass(curEle, ary[i])) {
+                var reg = new RegExp("(^| +)" + ary[i] + "( +|$)");
+                curEle.className = curEle.className.replace(reg, " ");
+            }
+        }
     }
 } 
