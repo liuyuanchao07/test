@@ -51,6 +51,17 @@ utils = {
         }
         curEle["style"][attr] = value;
     },
+    getGroupCss: function(curEle, option) {
+        option = option || 0;
+        if(Object.prototype.toString().call(option) !== "[object Object]") {
+            return;
+        };
+        for(var key in option) {
+            if(option.hasOwnProperty(key)) {
+                this.setCss(curEle, key, option[key]);
+            }
+        }
+    },
     offset: function(curEle) {
         var totalLeft = curEle.offsetLeft;
         var totalTop = curEle.offsetTop;
