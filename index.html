@@ -12,57 +12,77 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
     <style type="text/css">
-    .scroll {
-      width: 700px;
-      background-color: #ccc;
-      margin: 0 auto;
+    html,body {
+      margin: 0;
+      padding: 0;
     }
-    .inner {
-      height: 35px;
-      line-height: 35px;
-      padding: 0 10px;
-      overflow: hidden;
-      white-space: nowrap;
-      font-size: 0;
+    .picture {
+      border: 1px solid #000;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
     }
-    .scroll .begin,
-    .scroll .end {
-      display: inline-block;
-      font-size: 14px;
-    }
-    .scroll .begin span,
-    .scroll .end span {
-      color: #ff0000;
-      font-weight: bold;
+    .picture img {
+      width: 100px;
+      height: 100px;
     }
     </style>
     <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript">
       window.onload = function() {
-        var box = document.getElementById("box");
-        console.log(utils.setCss(box, "padding", "20px"));
+        var picture = document.getElementsByClassName(".wrapper")[0];
+        var pictureImg = document.getElementsByTagName("img");
+        var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        function lazyLoad(curImage) {
+          var flag = false;
+          if(!flag) {
+            var windowScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if(windowHeight >= utils.offset(curImage).top - windowScroll + curImage.offsetHeight) {
+              var temp = document.createElement("img");
+              temp.src = curImage.dataset["src"];
+              temp.onload = function() {
+                curImage.src = temp.src;
+                temp = null;
+              }
+              flag = true;
+            }
+          }
+        }
+
+        for(var i = 0; i < pictureImg.length; i++) {
+          lazyLoad(pictureImg[i]);
+        }
+
+        window.onscroll = function() {
+          for(var i = 0; i < pictureImg.length; i++) {
+            lazyLoad(pictureImg[i]);
+          }
+        }
       }
     </script>
   </head>
   <body>
-    <div id="box" class="bg bg2    box2 box3">
-      <span></span>
-      <p></p>
-      <p></p><!---->
-      <span></span>
-      <p></p>
-      <p></p>
-      <span></span>
-      <p></p>
-      <span id="current"></span>
-      <p></p>
-      <p></p>
-      <span></span>
-      <p></p>
-      <span></span>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div class="wrapper">
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
     </div>
   </body>
 </html>
