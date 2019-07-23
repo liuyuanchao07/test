@@ -32,6 +32,48 @@ utils = {
         val = reg.test(val) ? parseFloat(val) : val;
         return val;
     },
+    setCss: function(curEle, attr, value) {
+        if(attr === "float") {
+            curEle["style"]["cssFloat"] = value;
+            curEle["style"]["styleFloat"] = value;
+            return;
+        }
+        if(attr === "opacity") {
+            curEle["style"]["opacity"] = value;
+            curEle["style"]["filter"] = "alpha(opacity=" + value * 100 + ")";
+            return;
+        }
+        var reg = /^(width|height|top|bottom|left|right|((margin|padding)(Top|Bottom|Left|Right)?))$/;
+        if(reg.test(attr)) {
+            if(!isNaN(value)) {
+                value += "px";
+            }
+        }
+        curEle["style"][attr] = value;
+    },
+    getGroupCss: function(curEle, option) {
+        option = option || 0;
+        if(Object.prototype.toString().call(option) !== "[object Object]") {
+            return;
+        };
+        for(var key in option) {
+            if(option.hasOwnProperty(key)) {
+                this.setCss(curEle, key, option[key]);
+            }
+        }
+    },
+    css: function(curEle) {
+        if(typeof arguments[1] === "string") {
+            if(!arguments[2]) {
+                return this.getCss.apply(this, arguments);
+            }
+            this.setCss.apply(this, arguments);
+            arguments[1] = arguments[1] || 0;
+            if(arguments[1].toString() === "[object Object]") {
+                this.setGroupCss.apply(this, arguments);
+            }
+        }
+    },
     offset: function(curEle) {
         var totalLeft = curEle.offsetLeft;
         var totalTop = curEle.offsetTop;
