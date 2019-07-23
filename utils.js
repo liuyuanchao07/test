@@ -62,6 +62,18 @@ utils = {
             }
         }
     },
+    css: function(curEle) {
+        if(typeof arguments[1] === "string") {
+            if(!arguments[2]) {
+                return this.getCss.apply(this, arguments);
+            }
+            this.setCss.apply(this, arguments);
+            arguments[1] = arguments[1] || 0;
+            if(arguments[1].toString() === "[object Object]") {
+                this.setGroupCss.apply(this, arguments);
+            }
+        }
+    },
     offset: function(curEle) {
         var totalLeft = curEle.offsetLeft;
         var totalTop = curEle.offsetTop;
