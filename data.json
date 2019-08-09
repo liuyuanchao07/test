@@ -1,0 +1,18 @@
+[
+  {
+    "src":"/slider/1.jpg",
+    "description": "图1"
+  },
+  {
+    "src":"/slider/2.jpg",
+    "description": "图2"
+  },
+  {
+    "src":"/slider/3.jpg",
+    "description": "图3"
+  },
+  {
+    "src":"/slider/4.jpg",
+    "description": "图4"
+  }
+]
