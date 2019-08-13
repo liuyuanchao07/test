@@ -8,81 +8,233 @@
     <meta name="format-detection" content="telephone=no">
     <meta property="og:title" content="title">
     <meta property="og:site_name" content="site_name">
-    <meta property="og:description" content="description">
+    <meta property="og:description" content="description"> 
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
+    <style type="text/css" href="/reset.css"></style>
     <style type="text/css">
-    html,body {
-      margin: 0;
-      padding: 0;
+    .wrapper {
+      width: 1000px;
+      height: 300px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
     }
-    .picture {
-      border: 1px solid #000;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
+    .container {
+      height: 300px;
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-    .picture img {
-      width: 100px;
-      height: 100px;
+    .container .slide {
+      flex:  0 0 1000px;
+      height: 300px;
+      background: #b0b0b0 url(/slider/bx_loader.gif) no-repeat center center;
+    }
+    .container .slide img {
+      width: 100%;
+      height: 100%;
+      display: none;
+      opacity: 0;
+    }
+    .pagination {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-size: 0;
+    }
+    .pagination span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: #464646;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .pagination span.current {
+      background-color: #000;
+    }
+    .button {
+      position: absolute;
+      width: 30px;
+      height: 50px;
+      top: 50%;
+      margin-top: -25px;
+      background-color: #464646;
+      cursor: pointer;
+      display: none;
+    }
+    .button:hover {
+      opacity: 0.7;
+    }
+    .button::before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-top: 3px solid #fff;
+      border-left: 3px solid #fff;
+      top: 50%;
+      margin-top: -9px;
+      left: 10px;
+      transform: rotate(-45deg);
+    }
+    .button.prev {
+      left: 15px;
+    }
+    .button.next {
+      right: 15px;
+    }
+    .button.next::before {
+      transform: rotate(135deg);
+      left: 2px;
     }
     </style>
     <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript">
       window.onload = function() {
-        var picture = document.getElementsByClassName(".wrapper")[0];
-        var pictureImg = document.getElementsByTagName("img");
-        var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-        function lazyLoad(curImage) {
-          var flag = false;
-          if(!flag) {
-            var windowScroll = document.documentElement.scrollTop || document.body.scrollTop;
-            if(windowHeight >= utils.offset(curImage).top - windowScroll + curImage.offsetHeight) {
-              var temp = document.createElement("img");
-              temp.src = curImage.dataset["src"];
-              temp.onload = function() {
-                curImage.src = temp.src;
-                temp = null;
-              }
-              flag = true;
+        var wrapper = document.querySelector(".wrapper");
+        var container = document.querySelector(".container");
+        var pagination = document.querySelector(".pagination");
+        var prev = document.querySelector(".prev");
+        var next = document.querySelector(".next");
+        var width = 1000;
+        var count = 0;
+
+        function fadeInAnimate(curEle, attr, target, duration, interval) {
+          var time = 0;
+          var begin = parseFloat(window.getComputedStyle(curEle, null)[attr]);
+          var change = target - begin;
+          var fadeInTimer = window.setInterval(function() {
+            time += interval;
+            var step = time / duration * change + begin;
+            if(time >= duration) {
+              window.clearInterval(fadeInTimer);
+              curEle.style[attr] = target;
+              return;
             }
-          }
+            curEle.style[attr] = step;
+          }, interval);
+        };
+
+        function slideAnimate(curEle, attr, target, duration, interval) {
+          var time = 0;
+          var begin = Math.abs(parseFloat(window.getComputedStyle(curEle, null)[attr]));
+          var change = target - begin;
+          var slideTimer = window.setInterval(function() {
+            time += interval;
+            var step = time / duration * change + begin;
+            if(time >= duration) {
+              window.clearInterval(slideTimer);
+              curEle.style[attr] = -target + "px";
+              return;
+            }
+            curEle.style[attr] = -step + "px";
+          }, interval);
         }
 
-        for(var i = 0; i < pictureImg.length; i++) {
-          lazyLoad(pictureImg[i]);
-        }
-
-        window.onscroll = function() {
-          for(var i = 0; i < pictureImg.length; i++) {
-            lazyLoad(pictureImg[i]);
+        // 1.AJAX请求数据
+        var jsonData = null;
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", "/data.json?" + new Date(), false);
+        xhr.onreadystatechange = function() {
+          if(xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)) {
+            jsonData = JSON.parse(xhr.responseText);
           }
+        };
+        xhr.send(null);
+
+        // 2.数据绑定
+        var str = '';
+        jsonData.forEach(function(item) {
+          str += '<div class="slide"><img src="" alt="' + item.description + '" data-src="' + item.src + '"></div>'
+        });
+        str += '<div class="slide"><img src="" alt="' + jsonData[0].description + '" data-src="' + jsonData[0].src + '"></div>'
+        container.innerHTML = str;
+        str = null;
+
+        jsonData.forEach(function(item, index) {
+          str += index === 0 ? '<span class="current"></span>' : '<span></span>';
+        });
+        pagination.innerHTML = str;
+        container.style.width = ((jsonData.length + 1) * width) + "px";
+
+        // 3.延迟加载
+        var containerImage = container.querySelectorAll("img");
+        function lazyLoad() {
+          containerImage.forEach(function(item) {
+            var tempImg = new Image;
+            tempImg.src = item.dataset.src;
+            tempImg.onload = function() {
+              item.src = tempImg.src;
+              item.style.display = "block";
+              item.removeAttribute("data-src");
+              fadeInAnimate(item, "opacity", 1, 500, 100);
+              tempImg = null;
+              window.clearInterval(lazyLoadTimer);
+            }
+          })
+        };
+        var lazyLoadTimer = window.setTimeout(lazyLoad, 500);
+
+        // 4.自动滚动
+        var paginationItem = pagination.querySelectorAll("span");
+        function autoMove(ele) {
+          var tempCount = 0;
+          count++;
+          if(count === jsonData.length + 1) {
+            container.style.left = 0;
+            count = 1;
+          };
+          slideAnimate(container, "left", count * width, 500, 5)
+
+          if(count === jsonData.length) {
+            tempCount = 0;
+          } else {
+            tempCount = count;
+          }
+          paginationItem.forEach(function(item, index) {
+            if(index === tempCount) {
+              item.classList.add("current");
+            } else {
+              item.classList.remove("current");
+            }
+          });
+        }
+        var autoMoveTimer = window.setInterval(autoMove, 5000);
+
+        // // 5.点击圆点切换
+        paginationItem.forEach(function(item, index) {
+          item.onclick = function() {
+            paginationItem.forEach(function(item, index) {
+              item.classList.remove("current");
+            })
+            slideAnimate(container, "left", index * width, 500, 5);
+            count = index;
+            this.classList.add("current");
+          }
+        })
+
+        // 6.左右按钮切换
+        wrapper.onmouseenter = function() {
+          prev.style.display = "block";
+          next.style.display = "block";
+        };
+        wrapper.onmouseleave = function() {
+          prev.style.display = "none";
+          next.style.display = "none";
         }
       }
     </script>
   </head>
   <body>
     <div class="wrapper">
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
-        <div class="picture"><img src="//via.placeholder.com/200x200" data-src="normal.jpg"></div>
+      <div class="container"></div>
+      <div class="pagination"></div>
+      <div class="button prev"></div>
+      <div class="button next"></div>
     </div>
   </body>
 </html>
