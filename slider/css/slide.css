@@ -1,0 +1,81 @@
+.wrapper {
+  width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container .slide {
+  flex: 0 0 1000px;
+  height: 300px;
+  background: #b0b0b0 url(/slider/img/bx_loader.gif) no-repeat center center;
+}
+.container .slide img {
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+}
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0;
+  z-index: 2;
+}
+.pagination span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #464646;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.pagination span.current {
+  background-color: #000;
+}
+.button {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  top: 50%;
+  margin-top: -25px;
+  background-color: #464646;
+  cursor: pointer;
+  display: none;
+}
+.button:hover {
+  opacity: 0.7;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  top: 50%;
+  margin-top: -9px;
+  left: 10px;
+  transform: rotate(-45deg);
+}
+.button.prev {
+  left: 15px;
+  z-index: 1;
+}
+.button.next {
+  right: 15px;
+  z-index: 1;
+}
+.button.next::before {
+  transform: rotate(135deg);
+  left: 2px;
+}
