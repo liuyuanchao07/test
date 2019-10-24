@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+Array.prototype.mySlice = function() {
+	var ary = [];
+	for(var i = 0; i < this.length; i++) {
+		ary[i] = this[i];
+	}
+	return ary;
+}
+function avgFn() {
+	var ary = Array.prototype.mySlice.call(arguments);
+	//var ary = [].mySlice.call(arguments);
+	
+	ary.sort(function(a,b) {
+	  return a-b;
+	});
+	ary.pop();
+	ary.shift();
+	return (eval(ary.join("+")) / ary.length).toFixed(2);
+}
+var result= avgFn(6.9,7.9,8.4,9.9,1,2,3,4,5.5);
+console.log(result);
+</script>
+</body>
+</html>

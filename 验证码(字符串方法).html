@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#code {
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border: 1px solid #000;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+var str = "abcdefghijklmnopqrstuvwsyzABCDEFGHIJKLMNOPQRSTUVWSYZ0123456789";
+var node = document.createElement("div");
+node.id = "code";
+document.body.appendChild(node);
+
+function getRandom(n, m) {
+	var str2 = str;
+	var result = "";
+	for(var i = 0; i < 4; i++) {
+		var index = Math.round(Math.random() * (m - n) + n);
+		result += str2.charAt(index);
+		str2 = str2.replace(str2.charAt(index),"");
+		m--;
+	}
+	node.innerHTML = result;
+}
+getRandom(0, str.length - 1);
+
+node.onclick = function() {
+	getRandom(0, str.length - 1);
+}
+</script>
+</body>
+</html>

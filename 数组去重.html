@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+var ary = [1, 1, 4, 2, 5, 1, 4, 3, 7, 7, 0];
+function sortAry(ele) {
+	for(var i = 0; i < ele.length - 1; i++) {
+		for(var j = i + 1; j < ele.length; j++) {
+		  if(ele[i] == ele[j]) {
+				ele.splice(j, 1);
+				j--;
+			}
+		}
+	}
+	
+	for(var i = 0; i < ele.length - 1; i++) {
+		for(var j = 0; j < ele.length - 1 - i; j++) {
+			if(ele[j] > ele[j + 1]) {
+				var temp = ele[j];
+				ele[j] = ele[j + 1];
+				ele[j + 1] = temp;
+			}
+		}
+	}
+	
+	return ele;
+}
+sortAry(ary)
+console.log(ary);
+
+//对象思想
+var obj = {};
+for(var i = 0; i < ary.length; i++) {
+	 if(obj[ary[i]]) {
+		  ary.splice(i,1);
+				i--;
+		} else {
+		  obj[ary[i]] = ary[i];
+		}
+}
+obj = null;
+console.log(ary);
+</script>
+</body>
+</html>

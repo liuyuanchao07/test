@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <div></div>
+  <div></div>
+  <div></div>
+  <!-- -->
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
+<script type="text/javascript">
+var wrapper = document.getElementById("wrapper");
+function children(curEle, tagEle) {
+	var nodeList = wrapper.childNodes;
+	var ary = [];
+	if(/IE (6|7|8)/i.test(navigator.userAgent)) {
+	  for(var i = 0; i < nodeList.length; i++) {
+			if(nodeList[i].nodeType === 1) {
+				ary[ary.length] = nodeList[i];
+			}
+		}
+	} else {
+	  ary = Array.prototype.slice.call(curEle.children);
+	}
+
+	//filter tag
+	// [div, div, div, p, p, p]
+	if(typeof tagEle === "string") {
+		for(var j = 0; j < ary.length; j++) {
+			if(ary[j].nodeName.toUpperCase() !== tagEle.toUpperCase()) {
+        ary.splice(j,1);
+        j--;
+      }
+		}
+	}
+
+	return ary;
+}
+console.log(children(wrapper, "div"));
+</script>
+</body>
+</html>

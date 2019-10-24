@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//
+function getRandom(n, m) {
+	var n = Number(n);
+	var m = Number(m);
+
+	if(n > m) {
+		var temp = n;
+		n = m;
+		m = temp;
+	}
+
+	return Math.round(Math.random() * (m - n) + n)
+}
+var result = getRandom(1,50);
+console.log(result);
+</script>
+</body>
+</html>

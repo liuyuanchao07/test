@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.bg {
+	background-color: #3CF;
+}
+.cursor {
+	cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<table id="table">
+  <thead>
+    <tr>
+      <th class="cursor">姓名</th>
+      <th class="cursor">年龄</th>
+      <th class="cursor">武力</th>
+      <th class="cursor">性别</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>华晨宇</td>
+      <td>30</td>
+      <td>87</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <td>易烊千玺</td>
+      <td>20</td>
+      <td>90</td>
+      <td>男</td>
+    </tr>
+    <tr>
+      <td>温子仁</td>
+      <td>35</td>
+      <td>99</td>
+      <td>男</td>
+    </tr>
+    <tr>
+      <td>林心如</td>
+      <td>40</td>
+      <td>50</td>
+      <td>女</td>
+    </tr>
+  </tbody>
+</table>
+<script type="text/javascript">
+var oTab = document.getElementById("table");
+var oTh = oTab.tHead;
+var oThRow = oTh.rows[0];
+var oThCell = oThRow.cells;
+var oTb = oTab.tBodies[0];
+var oTbRow = oTb.rows;
+
+// 1) 设置公有方法
+var utils = {
+	// 类数组转换为数组
+	listToArray: function() {
+		var ary = [];
+		try {
+			ary = Array.prototype.slice.call(arguments);
+		} catch(e) {
+			for(var i = 0; i < arguments.length; i++) {
+				ary[i] = arguments[i];
+			}
+		}
+		return ary;
+	},
+	// 隔行变色
+	bgChange : function() {
+		for(var i = 0; i < oTbRow.length; i++) {
+			oTbRow[i].classList.remove("bg");
+			oTbRow[i].classList.add(i % 2 == 0 ? "bg" : null);
+		}
+	}
+}
+utils.bgChange();
+
+// 2) 点击执行sort方法
+for(var i = 0; i < oThCell.length; i++) {
+	oThCell[i].flag = -1;
+	oThCell[i].index = i;
+	oThCell[i].onclick = function() {
+		if(this.classList.contains("cursor")) {
+			mySort.call(this, this.index);
+		}
+	}
+}
+
+// 3) 封装mySort方法
+function mySort(n) {
+	var _this = this;
+	this.flag *= -1;
+	for(var j = 0; j < oThCell.length; j++) {
+		if(oThCell[j].index != n) {
+			oThCell[j].flag = -1;
+		}
+	}
+	var newAry = utils.listToArray.apply(null, oTbRow);
+	var frg = document.createDocumentFragment();
+	newAry.sort(function(a, b) {
+		if(isNaN(a.cells[n].innerHTML) || isNaN(b.cells[n].innerHTML)) {
+		  return (a.cells[n].innerHTML.localeCompare(b.cells[n].innerHTML)) * _this.flag;
+		}
+		return (a.cells[n].innerHTML - b.cells[n].innerHTML) * _this.flag;
+	});
+	for(var i = 0; i < newAry.length; i++) {
+		frg.appendChild(newAry[i]);
+	}
+	oTb.appendChild(frg);
+	frg = null;
+	utils.bgChange();
+}
+</script>
+</body>
+</html>

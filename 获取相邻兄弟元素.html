@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<div class="wrapper">
+<p></p>
+<span></span>
+<a></a>
+<em></em>
+<ul class="target"></ul>
+</div>
+<script type="text/javascript">
+var target = document.querySelector(".target");
+var ary = [];
+function prev(e) {
+	var prev = e.previousSibling;
+	while(prev) {
+		if(prev.nodeType != 1) {
+		  prev = prev.previousSibling;
+		} else {
+		  ary.unshift(prev.nodeName.toLowerCase());
+			break;
+		}
+	}
+	
+}
+function next(e) {
+	var next = e.nextSibling;
+	while(next) {
+		if(next.nodeType != 1) {
+		  next = next.nextSibling;
+		} else {
+		  ary.push(next.nodeName.toLowerCase());
+			break;
+		}
+	}
+}
+prev(target);
+next(target);
+console.log(ary);
+ary = null;
+</script>
+</body>
+</html>
